@@ -8,6 +8,8 @@ defmodule Issues.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
+      name: "Issues",
+      source_url: "https://github.com/JonathonBest/issuesApp",
       deps: deps()
     ]
   end
@@ -24,12 +26,20 @@ defmodule Issues.MixProject do
     [
       { :httpoison, "~> 1.0.0" },
       { :poison,    "~> 3.1"   },
+      { :ex_doc,    "~> 0.19"},
+      { :earmark,   "~> 1.2.4" },
     ]
   end
 
   def escript_config do
     [
       main_module: Issues.CLI
+    ]
+  end
+
+  def application do
+    [
+      extra_applications: [:logger]
     ]
   end
 end
